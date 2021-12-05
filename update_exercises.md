@@ -41,3 +41,19 @@ UPDATE cd.facilities
 SET membercost = 6, guestcost = 30
 WHERE name LIKE 'Tennis Court%';
 ```
+
+### Exercise 6
+
+```sql
+UPDATE cd.facilities
+SET membercost = (SELECT membercost FROM cd.facilities WHERE name = 'Tennis Court 1' ) *1.1,
+ guestcost = (SELECT guestcost FROM cd.facilities WHERE name = 'Tennis Court 1' )*1.1
+WHERE name = 'Tennis Court 2';
+-- OR
+update cd.facilities t2
+    set
+        membercost = t1.membercost * 1.1,
+        guestcost = t1.guestcost * 1.1
+    from (select membercost,guestcost from cd.facilities where name = 'Tennis Court 1') t1
+    where t2.facid = 1;
+```
