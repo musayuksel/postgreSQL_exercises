@@ -33,3 +33,11 @@ UPDATE cd.facilities
 SET initialoutlay = 10000
 WHERE name = 'Tennis Court 2';
 ```
+
+### Exercise 5
+
+```sql
+UPDATE cd.facilities
+SET membercost = 6, guestcost = 30
+WHERE name LIKE 'Tennis Court%';
+```
