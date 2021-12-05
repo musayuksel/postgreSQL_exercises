@@ -57,3 +57,9 @@ update cd.facilities t2
     from (select membercost,guestcost from cd.facilities where name = 'Tennis Court 1') t1
     where t2.facid = 1;
 ```
+
+### Exercise 7
+
+```sql
+DELETE FROM cd.bookings;
+```
