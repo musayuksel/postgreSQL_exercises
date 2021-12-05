@@ -63,3 +63,10 @@ update cd.facilities t2
 ```sql
 DELETE FROM cd.bookings;
 ```
+
+### Exercise 8
+
+```sql
+DELETE FROM cd.members
+WHERE memid = 37;
+```
