@@ -70,3 +70,11 @@ DELETE FROM cd.bookings;
 DELETE FROM cd.members
 WHERE memid = 37;
 ```
+
+### Exercise 9
+
+```sql
+DELETE FROM cd.members
+WHERE memid NOT IN (SELECT memid
+                    FROM cd.bookings);
+```
