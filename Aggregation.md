@@ -72,3 +72,16 @@ GROUP BY facid
 HAVING SUM(slots) > 1000
 ORDER BY facid
 ```
+
+### Exercise 9
+
+```sql
+SELECT name, SUM(slots * CASE
+  							WHEN memid = 0 then fc.guestcost
+							  ELSE fc.membercost END) AS "revenue"
+FROM cd.facilities fc
+INNER JOIN cd.bookings bk
+		ON bk.facid = fc.facid
+GROUP BY fc.name
+ORDER BY revenue
+```
