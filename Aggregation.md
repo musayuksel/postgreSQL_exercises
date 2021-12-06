@@ -85,3 +85,18 @@ INNER JOIN cd.bookings bk
 GROUP BY fc.name
 ORDER BY revenue
 ```
+
+### Exercise 10
+
+```sql
+SELECT * FROM (SELECT fc.name, SUM(CASE
+                                  WHEN memid = 0 THEN slots*fc.guestcost
+                                  ELSE slots*fc.membercost
+                                  END) AS "revenue"
+              FROM cd.facilities fc
+              INNER JOIN cd.bookings bk
+                    ON fc.facid = bk.facid
+              GROUP BY fc.name
+              ORDER BY "revenue") as result
+WHERE result.revenue < 1000
+```
