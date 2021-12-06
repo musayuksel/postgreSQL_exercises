@@ -54,3 +54,11 @@ WHERE extract(year FROM starttime) = 2012
 GROUP BY facid, month
 ORDER BY facid, month
 ```
+
+### Exercise 7
+
+```sql
+SELECT COUNT(*)
+FROM cd.members
+WHERE memid IN(SELECT DISTINCT(memid) FROM cd.bookings)
+```
