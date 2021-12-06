@@ -62,3 +62,13 @@ SELECT COUNT(*)
 FROM cd.members
 WHERE memid IN(SELECT DISTINCT(memid) FROM cd.bookings)
 ```
+
+### Exercise 8
+
+```sql
+SELECT facid, SUM(slots) AS "Total Slots"
+FROM cd.bookings
+GROUP BY facid
+HAVING SUM(slots) > 1000
+ORDER BY facid
+```
