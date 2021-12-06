@@ -24,3 +24,12 @@ WHERE recommendedby IS NOT NULL
 GROUP BY  recommendedby
 ORDER BY recommendedby ASC;
 ```
+
+### Exercise 4
+
+```sql
+SELECT facid, SUM(slots) AS "Total Slots"
+FROM cd.bookings
+GROUP BY facid
+ORDER BY facid;
+```
