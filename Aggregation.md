@@ -44,3 +44,13 @@ WHERE starttime >= '2012-09-01'
 GROUP BY facid
 ORDER BY "Total Slots"
 ```
+
+### Exercise 6
+
+```sql
+SELECT facid,extract(month FROM starttime) AS month, SUM(slots) AS "Total Slots"
+FROM cd.bookings
+WHERE extract(year FROM starttime) = 2012
+GROUP BY facid, month
+ORDER BY facid, month
+```
