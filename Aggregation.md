@@ -100,3 +100,15 @@ SELECT * FROM (SELECT fc.name, SUM(CASE
               ORDER BY "revenue") as result
 WHERE result.revenue < 1000
 ```
+
+### Exercise 11
+
+```sql
+SELECT bk.facid, SUM(slots) AS "Total Slots"
+FROM cd.bookings bk
+INNER JOIN cd.facilities fc ON fc.facid =bk.facid
+GROUP BY bk.facid
+ORDER BY "Total Slots" DESC
+LIMIT 1;
+-- WITHOUT LIMIT
+```
